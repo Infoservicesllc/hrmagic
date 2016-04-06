@@ -9,7 +9,6 @@ public class App
     public static void main( String[] args )
     {
         System.out.println( "Hello World!" );
-        System.out.println("HR Application!! :) ");
-        System.out.println("for InfoServices..");
+        System.out.println("InfoServices HR Application!!");
     }
 }
