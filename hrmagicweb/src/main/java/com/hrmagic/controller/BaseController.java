@@ -1,12 +1,12 @@
 package com.hrmagic.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class BaseController {
 	
-	@RequestMapping(value="/init", produces ="application/json")
+	@RequestMapping(value="/init")
 	public String init(){
 		
 		System.out.println("BaseController.init()");
