@@ -3,11 +3,11 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>hrmagic</groupId>
+    <groupId>com.hrmagic</groupId>
     <artifactId>hrmagic</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>hrmagic</groupId>
+  <groupId>com.hrmagic</groupId>
   <artifactId>hrmagiccore</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>hrmagiccore</name>

@@ -4,14 +4,14 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>hrmagic</groupId>
+	 <groupId>com.hrmagic</groupId>
 		<artifactId>hrmagic</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	
 	
 	
-	<groupId>hrmagic</groupId>
+	<groupId>com.hrmagic</groupId>
 	<artifactId>hrmagicweb</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
@@ -118,11 +118,17 @@
     <artifactId>poi</artifactId>
     <version>3.9</version>
 </dependency>
-		
 
 
 
 
+
+		<dependency>
+			<groupId>com.hrmagic</groupId>
+			<artifactId>hrmagiccore</artifactId>
+			 <version>0.0.1-SNAPSHOT</version>
+			
+		</dependency>
 	</dependencies>
 
 	<build>
