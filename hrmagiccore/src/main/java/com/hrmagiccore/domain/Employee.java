@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Employee {
 	
+	private int empID;
 	private String name;
 	
 	//TODO Check with Tasneem what for we use this.
