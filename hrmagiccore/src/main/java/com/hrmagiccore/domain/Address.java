@@ -1,5 +1,11 @@
 package com.hrmagiccore.domain;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorColumn(name="Address", discriminatorType=DiscriminatorType.STRING, length=20)
 public class Address {
 	private String line1;
 	private	String line2;

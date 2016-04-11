@@ -1,5 +1,8 @@
 package com.hrmagiccore.domain;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Company {
 	
 	private String name;
@@ -32,6 +35,4 @@ public class Company {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-	
-
 }

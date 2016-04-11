@@ -2,18 +2,26 @@ package com.hrmagiccore.domain;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+
+@Entity
 public class Employee {
-	
+	@Id
 	private int empID;
 	private String name;
 	
 	//TODO Check with Tasneem what for we use this.
-	private String eVerified;
+	private boolean eVerified;
 	
 	//TODO Check with Tasneem what for we use this.
-	private String visaStatus;
+	public enum visaStatus{
+		OPT,H1,H4EAD,GC,USC
+	};
 	//TODO Check with Tasneem what for we use this. Is it a Date 
-	private String visaValidation;
+	private Date visaValidation; // start date to end date
 	private Date startDate;
 	private Date lcaExpiration;
 	private double lcaSalary;
@@ -23,15 +31,19 @@ public class Employee {
 	private boolean paf;
 	
 	//TODO Check with Tasneem what for we use this.
-	private String w4onFile;
+	private boolean w4onFile;
 	private String ssn;
 	private Date dob;
 	private int contact;
 	private String email;	
-	private Address homeAddress;	
+	@ManyToOne
+	private Address homeAddress;
+	@ManyToOne
 	private Address workAddress;
 	private String workPhone;
+	@ManyToOne
 	private Company endClient;
+	@ManyToOne
 	private Company vendor;
 	
 	
@@ -42,24 +54,7 @@ public class Employee {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String geteVerified() {
-		return eVerified;
-	}
-	public void seteVerified(String eVerified) {
-		this.eVerified = eVerified;
-	}
-	public String getVisaStatus() {
-		return visaStatus;
-	}
-	public void setVisaStatus(String visaStatus) {
-		this.visaStatus = visaStatus;
-	}
-	public String getVisaValidation() {
-		return visaValidation;
-	}
-	public void setVisaValidation(String visaValidation) {
-		this.visaValidation = visaValidation;
-	}
+	
 	public Date getStartDate() {
 		return startDate;
 	}
@@ -90,12 +85,7 @@ public class Employee {
 	public void setPaf(boolean paf) {
 		this.paf = paf;
 	}
-	public String getW4onFile() {
-		return w4onFile;
-	}
-	public void setW4onFile(String w4onFile) {
-		this.w4onFile = w4onFile;
-	}
+	
 	public String getSsn() {
 		return ssn;
 	}
@@ -120,34 +110,12 @@ public class Employee {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Address getHomeAddress() {
-		return homeAddress;
-	}
-	public void setHomeAddress(Address homeAddress) {
-		this.homeAddress = homeAddress;
-	}
-	public Address getWorkAddress() {
-		return workAddress;
-	}
-	public void setWorkAddress(Address workAddress) {
-		this.workAddress = workAddress;
-	}
+	
 	public String getWorkPhone() {
 		return workPhone;
 	}
 	public void setWorkPhone(String workPhone) {
 		this.workPhone = workPhone;
 	}
-	public Company getEndClient() {
-		return endClient;
-	}
-	public void setEndClient(Company endClient) {
-		this.endClient = endClient;
-	}
-	public Company getVendor() {
-		return vendor;
-	}
-	public void setVendor(Company vendor) {
-		this.vendor = vendor;
-	}
+	
 }
