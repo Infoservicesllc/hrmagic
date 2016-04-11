@@ -26,7 +26,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @ComponentScan("com.hrmagic")
 @PropertySource("classpath:application.properties")
 //@EnableJpaRepositories("com.hrmagic")
-class WebMvcConfig extends WebMvcConfigurerAdapter {/*
+class WebMvcConfig extends WebMvcConfigurerAdapter {
 
 	private static final String PROPERTY_NAME_DATABASE_DRIVER = "db.driver";
 	private static final String PROPERTY_NAME_DATABASE_PASSWORD = "db.password";
@@ -98,5 +98,4 @@ class WebMvcConfig extends WebMvcConfigurerAdapter {/*
 	    registry.addResourceHandler("/static/**").addResourceLocations("/static/").setCachePeriod(cachePeriod);
 	
 	}
-
-*/}
+}
