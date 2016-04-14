@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="hrmagicApp">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Info Services LLC</title>
+      <script src="//code.angularjs.org/1.5.0-rc.2/angular.min.js" ></script>
+      <script src="//code.angularjs.org/1.5.0-rc.2/angular-route.min.js" ></script>
+      <script src="//code.angularjs.org/1.5.0-rc.2/angular-resource.min.js" ></script>
+       <script src="js/hrmagicApp.js"></script>
+
+    
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/styles.css" rel="stylesheet">
+      <link href="css/responsive.css" rel="stylesheet">
+      <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+   </head>
+   <body>
+      <header>
+         <div class="col-md-12 top-nav">
+            <ul>
+               <li>
+                  <div class="btn-group">
+                     <button class="btn" type="button" data-toggle="dropdown">My Account
+                     <i class="fa fa-caret-down"></i>
+                     </button>
+                     <ul class="dropdown-menu">
+                        <li><a href="#" data-toggle="modal" data-target="#profile">Profile</a>
+                        </li>
+                        <li><a href="#" data-toggle="modal" data-target="#change-password">Change Password</a>
+                        </li>
+                        <li><a href="#">Logout</a></li>
+                     </ul>
+                  </div>
+               </li>
+            </ul>
+         </div>
+         <div class="col-md-12 stick-head">
+            <div class="col-md-3 col-sm-4 col-xs-12 logo"><a href="#home" id="home"><img class="img-responsive" src="images/logo.png" />
+               </a>
+            </div>
+            <div class="col-md-9 col-sm-8 col-xs-12">
+               <div class="col-md-12 main-nav">
+                  <ul>
+                     <li><a href="#">Home</a></li>
+                     <li><a href="#">Company</a></li>
+                     <li><a href="#">Employees</a></li>
+                     <li><a href="#">Reports</a></li>
+                  </ul>
+               </div>
+            </div>
+            <div class="clearfix"></div>
+         </div>
+      </header>
+      <section>
+         <ul class="breadcrumb">
+            <li>
+               <a href="#">Home</a>
+            </li>
+            <li class="active">Employees</li>
+         </ul>
+         
+         
+         
+         <div class="container my-account" ng-controller="employeeController">
+            <div class="col-md-12">
+               <div class="col-md-12 text-center padding-none search">
+                  <div class="col-md-3 col-sm-3 col-xs-0"></div>
+                  <div class="col-md-6 col-sm-6 col-xs-12 form-control-fld">
+                     <div class="search">
+                        <div class="col-md-3 col-sm-3 col-xs-3 padding-none">
+                           <div class="normal-select">
+                              <select class="selectpicker">
+                                 <option>Search</option>
+                                 <option>Name</option>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="col-md-7 col-sm-7 col-xs-7 padding-none"><input type="text" class="form-control form-control1"></div>
+                        <div class="col-md-2 col-sm-2 col-xs-2 padding-none"> <button class="btn add-btn-search btn-sm" type="submit"><i class="fa fa-search"></i></button></div>
+                     </div>
+                  </div>
+                  <div class="col-md-3 col-sm-3 col-xs-0"></div>
+               </div>
+               <div class="clearfix"></div>
+               <div class="panel panel-default employees-block">
+                  <div class="panel-heading">Employees</div>
+                  <div class="panel-body table-responsive">
+                     <div class="col-md-12 col-sm-12 col-xs-12 sorting">
+                        <ul>
+                           <li class="sort"><strong><i class="fa fa-filter" aria-hidden="true"></i>
+                              Sort By: </strong>
+                           </li>
+                           <li><a href="#">Name</a></li>
+                           <li><a href="#">Location</a></li>
+                           <li><a href="#">Designation</a></li>
+                        </ul>
+                     </div>
+                     
+                     
+                      <div class="col-md-4 col-sm-6 col-xs-12"   ng-repeat="employee in employeeList">
+                        <div class="col-md-12 block">
+                           <div class="col-md-4 col-sm-4 col-xs-12 padding-none">
+                              <div class="profile-pic"><img src="images/profile-pic.png" class=""></div>
+                           </div>
+                           <div class="col-md-8 col-sm-8 col-xs-12 padding-right-none employee-info">
+                              <span><strong>{{employee.name}}</strong></span><br>
+                              <ul>
+                                 <li><i class="fa fa-angle-right" aria-hidden="true"></i>
+                                   {{employee.workAddress.city}} ,  {{employee.workAddress.state}}
+                                 </li>
+                                 <li><i class="fa fa-angle-right" aria-hidden="true"></i>
+                                   {{employee.email}}
+                                 </li>
+                                 <li><i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    {{employee.contact}}
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                     
+                
+                  </div>
+               </div>
+            </div>
+         </div>
+    
+         
+         
+      </section>
+      <div class="clearfix"></div>
+      <footer>
+         <div class="container">
+            © 2016 Info Services LLC All Rights Reserved.
+         </div>
+      </footer>
+      <script type="text/javascript" src="js/jquery.min.js"></script>
+      <script type="text/javascript" src="js/bootstrap.js"></script>
+   </body>
+</html>
