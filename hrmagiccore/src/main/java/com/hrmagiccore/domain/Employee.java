@@ -3,6 +3,8 @@ package com.hrmagiccore.domain;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,13 +19,6 @@ public class Employee {
 
 	// TODO Check with Tasneem what for we use this.
 	private boolean eVerified;
-
-	// TODO Check with Tasneem what for we use this.
-	public enum visaStatus {
-		OPT, H1, H4EAD, GC, USC
-	};
-
-	visaStatus vStatus;
 
 	// TODO Check with Tasneem what for we use this- Is it a Date
 	private Date visaValidation; // start date to end date
@@ -42,43 +37,15 @@ public class Employee {
 	private Date dob;
 	private int contact;
 	private String email;
-	@ManyToOne
 	private Address homeAddress;
-	@ManyToOne
 	private Address workAddress;
 	private String workPhone;
-	@ManyToOne
 	private Company endClient;
 	@ManyToOne
 	private Company vendor;
-
-	public Employee(visaStatus vStatus) {
-		this.vStatus = vStatus;
-	}
-
-	public void status() {
-		switch (vStatus) {
-		case OPT:
-			System.out.println("opt student");
-			break;
-		case H1:
-			System.out.println("h1 candidate");
-			break;
-		case H4EAD:
-			System.out.println("H4EAD candidate");
-			break;
-		case GC:
-			System.out.println("gc candidate");
-			break;
-		case USC:
-			System.out.println("US citizan");
-			break;
-		default:
-			System.out.println("invalid entry");
-			break;
-		}
-	}
-
+	@Enumerated(EnumType.STRING)
+	private VisaStaus visaStatus;
+	
 	public int getEmpID() {
 		return empID;
 	}
@@ -101,6 +68,14 @@ public class Employee {
 
 	public void seteVerified(boolean eVerified) {
 		this.eVerified = eVerified;
+	}
+
+	public VisaStaus getVisaStaus() {
+		return visaStatus;
+	}
+
+	public void setVisaStaus(VisaStaus visaStaus) {
+		this.visaStatus = visaStatus;
 	}
 
 	public Date getVisaValidation() {
@@ -233,7 +208,7 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [empID= " + empID + ",name=" + name + ", eVerified=" + eVerified + ",vStatus= " + vStatus
+		return "Employee [empID= " + empID + ",name=" + name + ", eVerified=" + eVerified + ",visaStatus= " + visaStatus
 				+ ",visaValidation=" + visaValidation + ",startDate=" + startDate + ",lcaExpiration=" + lcaExpiration
 				+ ",lcaSalary=" + lcaSalary + ",i9onFile=" + i9onFile + ",paf=" + paf + ",w4onFile=" + w4onFile
 				+ ",ssn=" + ssn + ",dob=" + dob + ",contact=" + contact + ",email=" + email + ",homeAddress="
