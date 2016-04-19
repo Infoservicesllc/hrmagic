@@ -26,22 +26,27 @@ public class EmployeeController {
 	}
 
 	@RequestMapping(value = "/getEmployee", method = RequestMethod.GET)
-	public Employee getEmployee(@PathVariable int empID) {
-		return employeeService.getEmployee(); 
+	public ResponseEntity<Employee> getEmployee(@PathVariable int empID) {
+		ResponseEntity<Employee> entity = new ResponseEntity<Employee>(employeeService.getEmployee(empID), HttpStatus.OK);
+		return entity; 
 	}
     
-	@RequestMapping(value = "/deleteEmployee", method = RequestMethod.GET)
-	public boolean deleteEmployee(@PathVariable Employee emp) {
-		return employeeService.deleteEmployee();
-	}
-
 	@RequestMapping(value = "/addEmployee", method = RequestMethod.GET)
-	public boolean addEmployee(@PathVariable Employee emp) {
-		return employeeService.addEmployee(emp);
+	public ResponseEntity<Boolean> addEmployee(@PathVariable Employee emp) {
+		ResponseEntity<Boolean> entity = new ResponseEntity<Boolean>(employeeService.addEmployee(emp), HttpStatus.CREATED);
+		return entity; 
+	}
+	
+	@RequestMapping(value = "/deleteEmployee", method = RequestMethod.DELETE)
+	public ResponseEntity<Boolean> deleteEmployee(@PathVariable int empID) {
+		ResponseEntity<Boolean> entity = new ResponseEntity<Boolean>(employeeService.deleteEmployee(empID), HttpStatus.OK);
+		return entity; 
 	}
 
-	@RequestMapping(value = "/updateEmployee", method = RequestMethod.GET)
-	public boolean updateEmployee(@PathVariable Employee emp) {
-		return employeeService.updateEmployee(emp);
+	@RequestMapping(value = "/updateEmployee", method = RequestMethod.PUT)
+	public ResponseEntity<Boolean> updateEmployee(@PathVariable Employee emp) {
+		ResponseEntity<Boolean> entity = new ResponseEntity<Boolean>(employeeService.addEmployee(emp), HttpStatus.OK);
+		return entity;
 	}
 }
+

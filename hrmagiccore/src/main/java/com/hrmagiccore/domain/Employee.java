@@ -44,7 +44,7 @@ public class Employee {
 	@ManyToOne
 	private Company vendor;
 	@Enumerated(EnumType.STRING)
-	private VisaStaus visaStatus;
+	private VisaStatus visaStatus;
 	
 	public int getEmpID() {
 		return empID;
@@ -70,11 +70,11 @@ public class Employee {
 		this.eVerified = eVerified;
 	}
 
-	public VisaStaus getVisaStaus() {
+	public VisaStatus getVisaStaus() {
 		return visaStatus;
 	}
 
-	public void setVisaStaus(VisaStaus visaStaus) {
+	public void setVisaStaus(VisaStatus visaStaus) {
 		this.visaStatus = visaStatus;
 	}
 
