@@ -3,6 +3,25 @@
 var hrmagicApp = angular.module('hrmagicApp', ['ngRoute', 'ngResource']);
 
 
+hrmagicApp.config(['$routeProvider',
+                    function($routeProvider) {
+                      $routeProvider.
+                        when('/', {
+                          templateUrl: 'pages/employeeList.html',
+                          controller: 'employeeController'
+                        }).
+                        when('/employees/:id', {
+                          templateUrl: 'pages/employeeDetail.html',
+                          controller: 'employeeController'
+                        })
+                    }]);
+
+
+
+
+
+
+
 
 hrmagicApp.controller('employeeController', ['$scope','$resource', '$routeParams', 'employeeService',  function($scope, $resource, $routeParams,employeeService) {
     

@@ -53,83 +53,15 @@
             <div class="clearfix"></div>
          </div>
       </header>
-      <section>
-         <ul class="breadcrumb">
-            <li>
-               <a href="#">Home</a>
-            </li>
-            <li class="active">Employees</li>
-         </ul>
-         
-         
-         
-         <div class="container my-account" ng-controller="employeeController">
-            <div class="col-md-12">
-               <div class="col-md-12 text-center padding-none search">
-                  <div class="col-md-3 col-sm-3 col-xs-0"></div>
-                  <div class="col-md-6 col-sm-6 col-xs-12 form-control-fld">
-                     <div class="search">
-                        <div class="col-md-3 col-sm-3 col-xs-3 padding-none">
-                           <div class="normal-select">
-                              <select class="selectpicker">
-                                 <option>Search</option>
-                                 <option>Name</option>
-                              </select>
-                           </div>
-                        </div>
-                        <div class="col-md-7 col-sm-7 col-xs-7 padding-none"><input type="text" class="form-control form-control1"></div>
-                        <div class="col-md-2 col-sm-2 col-xs-2 padding-none"> <button class="btn add-btn-search btn-sm" type="submit"><i class="fa fa-search"></i></button></div>
-                     </div>
-                  </div>
-                  <div class="col-md-3 col-sm-3 col-xs-0"></div>
-               </div>
-               <div class="clearfix"></div>
-               <div class="panel panel-default employees-block">
-                  <div class="panel-heading">Employees</div>
-                  <div class="panel-body table-responsive">
-                     <div class="col-md-12 col-sm-12 col-xs-12 sorting">
-                        <ul>
-                           <li class="sort"><strong><i class="fa fa-filter" aria-hidden="true"></i>
-                              Sort By: </strong>
-                           </li>
-                           <li><a href="#">Name</a></li>
-                           <li><a href="#">Location</a></li>
-                           <li><a href="#">Designation</a></li>
-                        </ul>
-                     </div>
-                     
-                     
-                      <div class="col-md-4 col-sm-6 col-xs-12"   ng-repeat="employee in employeeList">
-                        <div class="col-md-12 block">
-                           <div class="col-md-4 col-sm-4 col-xs-12 padding-none">
-                              <div class="profile-pic"><img src="images/profile-pic.png" class=""></div>
-                           </div>
-                           <div class="col-md-8 col-sm-8 col-xs-12 padding-right-none employee-info">
-                              <span><strong>{{employee.name}}</strong></span><br>
-                              <ul>
-                                 <li><i class="fa fa-angle-right" aria-hidden="true"></i>
-                                   {{employee.workAddress.city}} ,  {{employee.workAddress.state}}
-                                 </li>
-                                 <li><i class="fa fa-angle-right" aria-hidden="true"></i>
-                                   {{employee.email}}
-                                 </li>
-                                 <li><i class="fa fa-angle-right" aria-hidden="true"></i>
-                                    {{employee.contact}}
-                                 </li>
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                     
-                
-                  </div>
-               </div>
-            </div>
-         </div>
-    
-         
-         
-      </section>
+   
+   <div ng-view>
+   
+   </div>>
+   
+   
+   
+   
+   
       <div class="clearfix"></div>
       <footer>
          <div class="container">
