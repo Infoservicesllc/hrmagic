@@ -31,7 +31,7 @@ hrmagicApp.service('employeeService', [ '$resource', function($resource) {
 	
 	this.GetEmployes =function(callback){
 
-var employees = [];    
+    
 
 	
 
