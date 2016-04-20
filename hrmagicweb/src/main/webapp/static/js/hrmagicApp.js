@@ -34,7 +34,17 @@ hrmagicApp.controller('employeeController', ['$scope','$resource', '$routeParams
 		 console.log(" $scope.employeeList"+ $scope.employeeList)
 		 
 	 });
-	
+	 
+ employeeService.GetEmployeeDetail( 123, function(err, data){
+		 
+		 $scope.employeeDetails = data;
+		 console.log(" $scope.employeeDetails"+  JSON.stringify($scope.employeeDetails));
+		 
+		
+		 
+	 });
+	 
+
 	
 
 
@@ -46,13 +56,9 @@ hrmagicApp.controller('employeeController', ['$scope','$resource', '$routeParams
 
 
 hrmagicApp.service('employeeService', [ '$resource', function($resource) {
-	this.employeeAPI = $resource("/hrmagicweb/employees");
+	this.employeeAPI = $resource("/hrmagicweb/employees/:id");
 	
 	this.GetEmployes =function(callback){
-
-    
-
-	
 
 		this.employeeAPI.query().$promise.then(function(data) {
 			// success
@@ -65,6 +71,32 @@ hrmagicApp.service('employeeService', [ '$resource', function($resource) {
 		});
 
 	}
+	
+	this.GetEmployeeDetail = function(empID ,callback ){
+		
+		
+	var empDetails = 	 this.employeeAPI.get({ id: empID }).$promise.then(function(data) {
+		// success
+		
+		callback(null,data);
+		console.log(" data" + JSON.stringify(data));
+	}, function(errResponse) {
+		callback(errResponse,null);
+		console.log(" errResponse" + JSON.stringify(errResponse));
+	}); 
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 		
 		
 		
