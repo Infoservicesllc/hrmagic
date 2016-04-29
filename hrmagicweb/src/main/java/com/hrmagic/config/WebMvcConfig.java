@@ -23,9 +23,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 @EnableWebMvc
 //@EnableTransactionManagement
-@ComponentScan("com.hrmagic")
+@ComponentScan({ "com.hrmagic", "com.hrmagiccore"})
 @PropertySource("classpath:application.properties")
-//@EnableJpaRepositories("com.hrmagic")
+@EnableJpaRepositories("com.hrmagiccore")
 class WebMvcConfig extends WebMvcConfigurerAdapter {
 
 	private static final String PROPERTY_NAME_DATABASE_DRIVER = "db.driver";

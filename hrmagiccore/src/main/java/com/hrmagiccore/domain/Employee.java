@@ -8,13 +8,16 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 @Entity
 public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int empID;
+	private long empID;
 	private String name;
 
 	// TODO Check with Tasneem what for we use this.
@@ -26,6 +29,11 @@ public class Employee {
 	private Date startDate;
 	private Date lcaExpiration;
 	private double lcaSalary;
+	public Employee() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	private boolean i9onFile;
 
 	// TODO Check with Tasneem what for we use this.
@@ -37,20 +45,33 @@ public class Employee {
 	private Date dob;
 	private int contact;
 	private String email;
-	private Address homeAddress;
-	private Address workAddress;
+	
+	 // @Qualifier(value="homeAddress")
+	
+	@OneToOne
+    @Autowired
+	private HomeAddress homeAddress;
+	
+	@OneToOne
+    @Autowired
+	private WorkAddress workAddress;
 	private String workPhone;
+	
+	@OneToOne
+	@Autowired
 	private Company endClient;
-	@ManyToOne
+	
+	@OneToOne
+	@Autowired
 	private Company vendor;
 	@Enumerated(EnumType.STRING)
 	private VisaStatus visaStatus;
 	
-	public int getEmpID() {
+	public long getEmpID() {
 		return empID;
 	}
 
-	public void setEmpID(int empID) {
+	public void setEmpID(long empID) {
 		this.empID = empID;
 	}
 
@@ -109,7 +130,7 @@ public class Employee {
 	public void setLcaSalary(double lcaSalary) {
 		this.lcaSalary = lcaSalary;
 	}
-
+	
 	public boolean isI9onFile() {
 		return i9onFile;
 	}
@@ -170,7 +191,7 @@ public class Employee {
 		return homeAddress;
 	}
 
-	public void setHomeAddress(Address homeAddress) {
+	public void setHomeAddress(HomeAddress homeAddress) {
 		this.homeAddress = homeAddress;
 	}
 
@@ -178,7 +199,7 @@ public class Employee {
 		return workAddress;
 	}
 
-	public void setWorkAddress(Address workAddress) {
+	public void setWorkAddress(WorkAddress workAddress) {
 		this.workAddress = workAddress;
 	}
 
@@ -190,7 +211,9 @@ public class Employee {
 		this.workPhone = workPhone;
 	}
 
-	public Company getEndClient() {
+	
+	  public Company getEndClient() {
+	 
 		return endClient;
 	}
 
@@ -208,12 +231,14 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [empID= " + empID + ",name=" + name + ", eVerified=" + eVerified + ",visaStatus= " + visaStatus
-				+ ",visaValidation=" + visaValidation + ",startDate=" + startDate + ",lcaExpiration=" + lcaExpiration
+		return "Employee [empID= " + empID + ",name=" + name + ", eVerified=" + eVerified + ",visaStatus= " +
+	visaStatus+
+				 ",visaValidation=" + visaValidation + ",startDate=" + startDate + ",lcaExpiration=" + lcaExpiration
 				+ ",lcaSalary=" + lcaSalary + ",i9onFile=" + i9onFile + ",paf=" + paf + ",w4onFile=" + w4onFile
 				+ ",ssn=" + ssn + ",dob=" + dob + ",contact=" + contact + ",email=" + email + ",homeAddress="
-				+ homeAddress + ",workAddress=" + workAddress + ",workPhone=" + workAddress + ",endClient=" + endClient
-				+ ",vendor=" + vendor + "]";
+			//+ homeAddress + ",workAddress=" + workAddress + ",workPhone=" + workAddress 
+				+ ",endClient=" + endClient + ",vendor=" + vendor 
+				+ "]";
 
 	}
 

@@ -2,11 +2,24 @@ package com.hrmagiccore.domain;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
+import org.springframework.stereotype.Component;
+
+
+@DiscriminatorColumn(name="AddressType", discriminatorType=DiscriminatorType.STRING, length=20)
+@DiscriminatorValue(value = "address")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE) 
 @Entity
-@DiscriminatorColumn(name="Address", discriminatorType=DiscriminatorType.STRING, length=20)
+@Component
 public class Address {
+	
+	@Id
+	private long addressId;
 	private String line1;
 	private	String line2;
 	private	String city;

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.hrmagiccore.domain.Employee;
 
+
 public interface EmployeeService {
 
 	public List<Employee> getEmployeeList();

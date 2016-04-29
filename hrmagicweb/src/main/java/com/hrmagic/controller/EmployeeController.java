@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,14 +16,16 @@ import com.hrmagiccore.service.EmployeeService;
 
 @RestController
 public class EmployeeController {
-
-	private Employee employee;
+	
+	
 	@Autowired
-	EmployeeService employeeService;
+	private EmployeeService employeeService;
 
 	@RequestMapping(value = "/getEmployeeList", method = RequestMethod.GET)
 	public ResponseEntity<List<Employee>> getEmployee() {
-		return (ResponseEntity<List<Employee>>) employeeService.getEmployeeList();
+		System.out.println("getlist  method");
+		ResponseEntity<List<Employee>> responseEntity = new ResponseEntity<List<Employee>>(employeeService.getEmployeeList(),HttpStatus.OK);
+		return responseEntity;
 	}
 
 	@RequestMapping(value = "/getEmployee", method = RequestMethod.GET)
@@ -31,8 +34,11 @@ public class EmployeeController {
 		return entity; 
 	}
     
-	@RequestMapping(value = "/addEmployee", method = RequestMethod.GET)
-	public ResponseEntity<Boolean> addEmployee(@PathVariable Employee emp) {
+	@RequestMapping(value = "/addEmployee", method = RequestMethod.POST)
+	public ResponseEntity<Boolean> addEmployee(@RequestBody Employee emp) {
+		 emp = null;
+		 System.out.println("add method");
+		 
 		ResponseEntity<Boolean> entity = new ResponseEntity<Boolean>(employeeService.addEmployee(emp), HttpStatus.CREATED);
 		return entity; 
 	}
