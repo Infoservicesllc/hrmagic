@@ -4,6 +4,8 @@ import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -19,6 +21,7 @@ import org.springframework.stereotype.Component;
 public class Address {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long addressId;
 	private String line1;
 	private	String line2;

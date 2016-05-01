@@ -34,7 +34,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	}
 
-	public boolean updateEmployee(Employee emp) {
+	public boolean updateEmployee(int id, Employee emp) {
 
 		// return employeeRepo.updateEmployee(emp);
 		return false;
