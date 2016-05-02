@@ -12,5 +12,6 @@ public class App
         System.out.println("InfoServices HR Application!!");
         //for testing conflicts
         System.out.println("testing git conflicts!!");
+        //Conflict test
     }
 }
