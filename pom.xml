@@ -9,4 +9,7 @@
     <module>hrmagicweb</module>
     <module>hrmagiccore</module>
   </modules>
+  <build>
+    <defaultGoal>install</defaultGoal>
+  </build>
 </project>

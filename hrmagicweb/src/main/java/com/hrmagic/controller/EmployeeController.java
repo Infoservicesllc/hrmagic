@@ -41,7 +41,7 @@ public class EmployeeController {
 		return entity;
 	}
 
-	@RequestMapping(value = "/employees/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/employees/{id}", method = RequestMethod.PATCH)
 	public ResponseEntity<Boolean> updateEmployee(@PathVariable int empID, @RequestBody Employee emp) {
 		ResponseEntity<Boolean> entity = new ResponseEntity<Boolean>(employeeService.updateEmployee(empID, emp),
 				HttpStatus.OK);
