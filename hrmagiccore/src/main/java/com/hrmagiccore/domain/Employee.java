@@ -2,6 +2,7 @@ package com.hrmagiccore.domain;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -9,9 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 
 @Entity
 public class Employee {
@@ -29,10 +27,7 @@ public class Employee {
 	private Date startDate;
 	private Date lcaExpiration;
 	private double lcaSalary;
-	public Employee() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	private boolean i9onFile;
 
@@ -46,23 +41,19 @@ public class Employee {
 	private int contact;
 	private String email;
 	
-	 // @Qualifier(value="homeAddress")
 	
-	@OneToOne
-    @Autowired
+	
+	@OneToOne(cascade=CascadeType.ALL)
 	private HomeAddress homeAddress;
 	
-	@OneToOne
-    @Autowired
+	@OneToOne(cascade=CascadeType.ALL)
 	private WorkAddress workAddress;
 	private String workPhone;
 	
-	@OneToOne
-	@Autowired
+	@OneToOne(cascade=CascadeType.ALL)
 	private Company endClient;
 	
-	@OneToOne
-	@Autowired
+	@OneToOne(cascade=CascadeType.ALL)
 	private Company vendor;
 	@Enumerated(EnumType.STRING)
 	private VisaStatus visaStatus;
@@ -95,7 +86,7 @@ public class Employee {
 		return visaStatus;
 	}
 
-	public void setVisaStaus(VisaStatus visaStaus) {
+	public void setVisaStaus(VisaStatus visaStatus) {
 		this.visaStatus = visaStatus;
 	}
 

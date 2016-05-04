@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 
 @Entity  
 @DiscriminatorValue("homeAddress")
-@Component("homeAddress")
 public class HomeAddress extends Address {
 
 }

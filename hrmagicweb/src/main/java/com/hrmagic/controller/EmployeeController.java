@@ -1,6 +1,7 @@
 package com.hrmagic.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.hrmagiccore.domain.Company;
 import com.hrmagiccore.domain.Employee;
+import com.hrmagiccore.domain.HomeAddress;
+import com.hrmagiccore.domain.VisaStatus;
+import com.hrmagiccore.domain.WorkAddress;
 import com.hrmagiccore.service.EmployeeService;
 
 @RestController
@@ -22,6 +28,51 @@ public class EmployeeController {
 
 	@RequestMapping(value = "/employees", method = RequestMethod.GET)
 	public ResponseEntity<List<Employee>> getEmployees() {
+		
+	/*	Employee emp =  new Employee();
+		emp.setContact(254777877);
+		emp.setDob(new Date());
+		emp.setEmail("first.last@company.com");
+		emp.setName("Firstname Last Name");
+		emp.setSsn("000-00-0000");
+		emp.setStartDate(new Date());
+		emp.setVisaStaus(VisaStatus.H1B);
+		emp.setW4onFile(true);
+		emp.setWorkPhone("234-949-2344");
+		emp.setVisaValidation(new Date());
+		
+		Company endClient =  new Company();
+		endClient.setContactNumb("234-234-3444");
+		endClient.setContactPerson("endl Client contact name");
+		endClient.setName("End Client name INc");
+		
+		Company vendor =  new Company();
+		vendor.setContactNumb("234-234-3444");
+		vendor.setContactPerson("endl Client contact name");
+		vendor.setName("End Client name INc");
+		
+		
+		HomeAddress homeAddress =  new HomeAddress();
+		homeAddress.setLine1("94854 XYZ DR");
+		homeAddress.setLine2("Apt # 123");
+		homeAddress.setCity("City Name");
+		homeAddress.setState("MI");
+		homeAddress.setZip("00999");
+		
+		WorkAddress workAddress =  new WorkAddress();
+		workAddress.setLine1("94854 XYZ DR");
+		workAddress.setLine2("Apt # 123");
+		workAddress.setCity("City Name");
+		workAddress.setState("MI");
+		workAddress.setZip("00999");
+		
+		emp.setEndClient(endClient);
+		emp.setHomeAddress(homeAddress);
+		emp.setWorkAddress(workAddress);
+		emp.setVendor(vendor);
+		
+		employeeService.addEmployee(emp);*/
+		
 		ResponseEntity<List<Employee>> resp = new ResponseEntity<List<Employee>>(employeeService.getEmployeeList(),
 				HttpStatus.OK);
 		return resp;
@@ -29,6 +80,9 @@ public class EmployeeController {
 
 	@RequestMapping(value = "/employees/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Employee> getEmployee(@PathVariable int empID) {
+	
+		
+		
 		ResponseEntity<Employee> entity = new ResponseEntity<Employee>(employeeService.getEmployee(empID),
 				HttpStatus.OK);
 		return entity;
