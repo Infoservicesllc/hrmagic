@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hrmagiccore.domain.Company;
 import com.hrmagiccore.domain.Employee;
+import com.hrmagiccore.domain.EndClient;
 import com.hrmagiccore.domain.HomeAddress;
+import com.hrmagiccore.domain.Vendor;
 import com.hrmagiccore.domain.VisaStatus;
 import com.hrmagiccore.domain.WorkAddress;
 import com.hrmagiccore.service.EmployeeService;
@@ -29,7 +31,7 @@ public class EmployeeController {
 	@RequestMapping(value = "/employees", method = RequestMethod.GET)
 	public ResponseEntity<List<Employee>> getEmployees() {
 		
-	/*	Employee emp =  new Employee();
+		Employee emp =  new Employee();
 		emp.setContact(254777877);
 		emp.setDob(new Date());
 		emp.setEmail("first.last@company.com");
@@ -41,12 +43,12 @@ public class EmployeeController {
 		emp.setWorkPhone("234-949-2344");
 		emp.setVisaValidation(new Date());
 		
-		Company endClient =  new Company();
+		EndClient endClient =  new EndClient();
 		endClient.setContactNumb("234-234-3444");
 		endClient.setContactPerson("endl Client contact name");
 		endClient.setName("End Client name INc");
 		
-		Company vendor =  new Company();
+		Vendor vendor =  new Vendor();
 		vendor.setContactNumb("234-234-3444");
 		vendor.setContactPerson("endl Client contact name");
 		vendor.setName("End Client name INc");
@@ -71,7 +73,7 @@ public class EmployeeController {
 		emp.setWorkAddress(workAddress);
 		emp.setVendor(vendor);
 		
-		employeeService.addEmployee(emp);*/
+		employeeService.addEmployee(emp);
 		
 		ResponseEntity<List<Employee>> resp = new ResponseEntity<List<Employee>>(employeeService.getEmployeeList(),
 				HttpStatus.OK);
@@ -79,11 +81,11 @@ public class EmployeeController {
 	}
 
 	@RequestMapping(value = "/employees/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Employee> getEmployee(@PathVariable int empID) {
+	public ResponseEntity<Employee> getEmployee(@PathVariable int id) {
 	
+		System.out.println("EmployeeController.getEmployee( )  | ID  : "+id  );
 		
-		
-		ResponseEntity<Employee> entity = new ResponseEntity<Employee>(employeeService.getEmployee(empID),
+		ResponseEntity<Employee> entity = new ResponseEntity<Employee>(employeeService.getEmployee(id),
 				HttpStatus.OK);
 		return entity;
 	}

@@ -51,10 +51,10 @@ public class Employee {
 	private String workPhone;
 	
 	@OneToOne(cascade=CascadeType.ALL)
-	private Company endClient;
+	private EndClient endClient;
 	
 	@OneToOne(cascade=CascadeType.ALL)
-	private Company vendor;
+	private Vendor vendor;
 	@Enumerated(EnumType.STRING)
 	private VisaStatus visaStatus;
 	
@@ -203,20 +203,20 @@ public class Employee {
 	}
 
 	
-	  public Company getEndClient() {
+	  public EndClient getEndClient() {
 	 
 		return endClient;
 	}
 
-	public void setEndClient(Company endClient) {
+	public void setEndClient(EndClient endClient) {
 		this.endClient = endClient;
 	}
 
-	public Company getVendor() {
+	public Vendor getVendor() {
 		return vendor;
 	}
 
-	public void setVendor(Company vendor) {
+	public void setVendor(Vendor vendor) {
 		this.vendor = vendor;
 	}
 

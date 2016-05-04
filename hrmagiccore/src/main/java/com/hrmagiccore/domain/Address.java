@@ -22,15 +22,29 @@ public class Address {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long addressId;
+	private long id;
+	
 	private String line1;
 	private	String line2;
 	private	String city;
 	private	String state;
 	private	String zip;
+	
+	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	
+	
 	public String getLine1() {
 		return line1;
 	}
+	
+	
+	
 	public void setLine1(String line1) {
 		this.line1 = line1;
 	}
