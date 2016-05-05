@@ -31,7 +31,7 @@ public class EmployeeController {
 	@RequestMapping(value = "/employees", method = RequestMethod.GET)
 	public ResponseEntity<List<Employee>> getEmployees() {
 		
-		Employee emp =  new Employee();
+		/*Employee emp =  new Employee();
 		emp.setContact(254777877);
 		emp.setDob(new Date());
 		emp.setEmail("first.last@company.com");
@@ -73,7 +73,7 @@ public class EmployeeController {
 		emp.setWorkAddress(workAddress);
 		emp.setVendor(vendor);
 		
-		employeeService.addEmployee(emp);
+		employeeService.addEmployee(emp);*/
 		
 		ResponseEntity<List<Employee>> resp = new ResponseEntity<List<Employee>>(employeeService.getEmployeeList(),
 				HttpStatus.OK);
