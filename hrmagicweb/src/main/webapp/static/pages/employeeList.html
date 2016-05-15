@@ -1,5 +1,38 @@
 
 <section>
+
+	<script type="text/javascript">
+		function showCardView() {
+			alert("cardview");
+			$("#listView").hide();
+			$("#cardView").show();
+			/* document.getElementById("listView").style.display = "none";
+			document.getElementById("cardView").style.display = ""; */
+		}
+
+		function showListView() {
+			alert("listview");
+			$("#listView").show();
+			$("#cardView").hide();
+			/*  document.getElementById("cardView").style.display = "none";
+			 document.getElementById("listView").style.display = ""; */
+		}
+
+		function addRowHandlers() {
+			var table = document.getElementById("tableId");
+			var rows = table.getElementsByTagName("tr");
+			for (i = 1; i < rows.length; i++) {
+				var row = table.rows[i];
+				row.onclick = function(myrow) {
+					return function() {
+						var cell = myrow.getElementsByTagName("td")[0];
+						var id = cell.innerHTML;
+						alert("id:" + id);
+					};
+				}(row);
+			}
+		}
+	</script>
 	<ul class="breadcrumb">
 		<li><a href="#">Home</a></li>
 		<li class="active">Employees</li>
@@ -34,11 +67,12 @@
 				<div class="panel-heading">Employees</div>
 				<div class="panel-body table-responsive">
 					<div class="col-md-12 col-sm-12 col-xs-12 panel-options">
-						<div class="col-md-4 col-sm-4 col-xs-12 view-types padding-none">
+						<div id="header1"
+							class="col-md-4 col-sm-4 col-xs-12 view-types padding-none">
 							<ul>
-								<li><a href="#"><i class="fa fa-th" aria-hidden="true"></i>
-										Card View</a></li>
-								<li><a href="#"><i class="fa fa-list"
+								<li><a onclick="showCardView();"><i class="fa fa-th"
+										aria-hidden="true"></i> Card View</a></li>
+								<li><a onclick="showListView();"><i class="fa fa-list"
 										aria-hidden="true"></i> List View</a></li>
 							</ul>
 						</div>
@@ -53,61 +87,52 @@
 							</ul>
 						</div>
 					</div>
-					<div class="grid-view">
+					<div class="grid-view" id="cardView">
 
 
-
-						<div class="col-md-4 col-sm-6 col-xs-12"    ng-repeat="employee in employeeList" >
-							<div class="col-md-12 block">
-								<div class="col-md-4 col-sm-4 col-xs-12 padding-none">
-									<div class="profile-pic">
-										<img src="images/profile-pic.png" class="img-responsive">
+						
+							<div class="col-md-4 col-sm-6 col-xs-12"
+								ng-repeat="employee in employeeList">
+								<a href="#/employees/1">
+								<div>Employeeid:{{employee.empID}}</div>
+								<div class="col-md-12 block">
+									<div class="col-md-4 col-sm-4 col-xs-12 padding-none">
+										<div class="profile-pic">
+											<img src="images/profile-pic.png" class="img-responsive">
+										</div>
+									</div>
+									<div
+										class="col-md-8 col-sm-8 col-xs-12 padding-right-none employee-info">
+	
+										<span><strong>{{employee.name}}</strong></span><br>
+										<ul>
+											<li><i class="fa fa-angle-right" aria-hidden="true"></i>
+												{{employee.workAddress.city}} ,
+												{{employee.workAddress.state}}</li>
+											<li><i class="fa fa-angle-right" aria-hidden="true"></i>
+												{{employee.email}}</li>
+											<li><i class="fa fa-angle-right" aria-hidden="true"></i>
+												{{employee.contact}}</li>
+										</ul>
+	
 									</div>
 								</div>
-								<div
-									class="col-md-8 col-sm-8 col-xs-12 padding-right-none employee-info">
-
-
-
-
-
-
-
-
-								   <span><strong>{{employee.name}}</strong></span><br>
-									<ul>
-                                 <li><i class="fa fa-angle-right" aria-hidden="true"></i>
-                                   {{employee.workAddress.city}} ,  {{employee.workAddress.state}}
-                                 </li>
-                                 <li><i class="fa fa-angle-right" aria-hidden="true"></i>
-                                   {{employee.email}}
-                                 </li>
-                                 <li><i class="fa fa-angle-right" aria-hidden="true"></i>
-                                    {{employee.contact}}
-                                 </li>
-                              </ul>
-
-								</div>
+								</a>
 							</div>
-						</div>
 						
-				
+
+
 					</div>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<div class="list-view">
+
+					
+
+
+
+					<div class="list-view" id="listView" style="display: none;">
+
 						<div class="col-md-12">
 							<div class="table-responsive">
-								<table class="table table-striped">
+								<table class="table table-striped" id="tableId">
 									<thead>
 										<tr>
 											<th>Employee Name <i class="fa fa-sort"
@@ -118,13 +143,13 @@
 										</tr>
 									</thead>
 									<tbody>
-										
-										
 
 
-										
-										
+
+
+
 										<tr>
+
 											<td>
 												<div class="profile-pic">
 													<img class="" src="images/profile-pic.png">
@@ -132,8 +157,10 @@
 											</td>
 											<td>San Joes, CA</td>
 											<td>Steve.jobs@emaol.com</td>
-											<td>(888) 323 3333</td>
+											<td>(888) 323 link</td>
+
 										</tr>
+
 										<tr>
 											<td>
 												<div class="profile-pic">
@@ -179,21 +206,21 @@
 							</div>
 						</div>
 					</div>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 				</div>
 			</div>
 		</div>
