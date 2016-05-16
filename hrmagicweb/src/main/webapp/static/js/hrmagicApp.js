@@ -1,5 +1,3 @@
-
-
 var hrmagicApp = angular.module('hrmagicApp', ['ngRoute', 'ngResource']);
 
 
@@ -35,8 +33,9 @@ hrmagicApp.controller('employeeController', ['$scope','$resource', '$routeParams
 		 
 	 });
 	 
- employeeService.GetEmployeeDetail( 123, function(err, data){
+ employeeService.GetEmployeeDetail( $routeParams.id, function(err, data){
 		 
+	 console.log("routeParams.id : "+$routeParams.id);
 		 $scope.employeeDetails = data;
 		 console.log(" $scope.employeeDetails"+  JSON.stringify($scope.employeeDetails));
 		 
@@ -45,7 +44,42 @@ hrmagicApp.controller('employeeController', ['$scope','$resource', '$routeParams
 	 });
 	 
 
+ hideAll= function(){
+	 
 	
+		$("#overview").removeClass("in active");
+		$("#personal").removeClass("in active");
+		$("#assignments").removeClass("in active");
+		$("#visa").removeClass("in active");
+		$("#contact").removeClass("in active");
+		$("#career").removeClass("in active");
+		$("#salary").removeClass("in active");
+		
+	 
+ }
+ 
+ showPanel = function(panelId){
+	 alert(panelId);
+	 hideAll();
+	 $("#"+panelId).addClass("in active");
+ }
+ 
+ 
+ showCardView = function() {
+		alert("cardview");
+		$("#listView").hide();
+		$("#cardView").show();
+		/* document.getElementById("listView").style.display = "none";
+		document.getElementById("cardView").style.display = ""; */
+	}
+ 
+ showCardView= function() {
+		alert("cardview");
+		$("#listView").hide();
+		$("#cardView").show();
+		/* document.getElementById("listView").style.display = "none";
+		document.getElementById("cardView").style.display = ""; */
+	}
 
 
 }]);
@@ -88,6 +122,8 @@ hrmagicApp.service('employeeService', [ '$resource', function($resource) {
 		
 		
 	}
+	
+	
 	
 	
 	
